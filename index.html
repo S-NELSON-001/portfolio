@@ -11,24 +11,6 @@
     <meta name="keywords" content="Nelson S, software developer, Python, AWS, Machine Learning, web development, portfolio">
     <link rel="icon" href="assets/img/nelson.ico">
     <link rel="stylesheet" href="assets/css/style.css">
-    <!-- Add Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Nelson S",
-      "url": "https://s-nelson-001.github.io/portfolio/",
-      "sameAs": [
-        "https://github.com/S-NELSON-001",
-        "http://www.linkedin.com/in/nelson-s-78088b222"
-      ],
-      "jobTitle": "Software Developer",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Your Company Name
-      }
-    }
-    </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Stylish&display=swap" rel="stylesheet">
@@ -36,6 +18,20 @@
   <!-- Favicons -->
   <link href="assets/img/nelson.ico" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!--Integrating with EmailJs-->
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+      (function(){
+          emailjs.init({
+            publicKey: "_VfrCwguHgSwVsPNP",
+      });
+      })();
+  </script>
+
+  <script src="forms/contact.js"></script>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -433,32 +429,32 @@
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <div class="php-email-form">
               <div class="row">
                 <div class="form-group col-md-6">
                   <label for="name" class="bona-nova-sc-regular">Your Name</label>
-                  <input readonly type="text" name="name" class="form-control" id="name" required>
+                  <input type="text" name="name" class="form-control" id="name" required>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="name" class="bona-nova-sc-regular">Your Email</label>
-                  <input readonly type="email" class="form-control" name="email" id="email" required>
+                  <input type="email" class="form-control" name="email" id="email" required>
                 </div>
               </div>
               <div class="form-group">
                 <label for="name" class="bona-nova-sc-regular">Subject</label>
-                <input  readonly type="text" class="form-control" name="subject" id="subject" required>
+                <input  type="text" class="form-control" name="subject" id="subject" required>
               </div>
               <div class="form-group">
                 <label for="name" class="bona-nova-sc-regular">Message</label>
-                <textarea readonly class="form-control" name="message" rows="10" required>This is still under Construction!!!please go ahead with navigation bar..Thank you for your understanding!!</textarea>
+                <textarea  class="form-control" id="message" name="message" rows="10" required></textarea>
               </div>
               <div class="my-3">
                 <div class="loading">Loading</div>
                 <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
+              <div class="text-center"><button type="submit" onclick="sendmail()">Send Message</button></div>
+            </div>
           </div>
 
         </div>
